@@ -10,17 +10,17 @@
 <body>
     <header>
         <div class="logo" ><img src="../사진파일/로고.png"></div>
-        <div class="home"><p>Home</p></div>
-        <div class="com" button type="button" onClick="location.href='community.html'"><p>community</p></div>
-        <div class="news"><p>news</p></div>
-        <div class="event"><p>event</p></div>
+        <div class="home" button type="button" onClick="location.href='index.html'"><p>Home</p></div>
+        <div class="com" button type="button" onClick="location.href='community.html'"><p>Community</p></div>
+        <div class="news" button type="button" onClick="location.href='news.html'"><p>News</p></div>
+        <div class="event"><p>Event</p></div>
     </header>
     <section>
     <div class="mainleft">
         <div class="ml1">1st 승부예측</div>
         <div class="ml2">
-            <p class="first">1</p>
-            <p>2</p>
+            <div class="fir"><p class="first">1</p></div>
+            <p class="ml2two">2</p>
             <p>3</p>
             <p>4</p>
             <p>5</p>
@@ -33,14 +33,22 @@
         <div class="ml3">
             <div class="ml3top">
                 <div class="innercontent">
-                    <img src="../사진파일/게이지.png">
-
+                    <div class="box">
+                        <div class="circle">
+                             <div class="inner"></div>
+                             
+                        </div>
+                        <!-- <div class="winner" >
+                            <img src="../사진파일/맨유 로고.png"><p>in superior</p></div> -->
+    
+                      </div>
+                    
                 </div>
             </div>
             <div class="ml3lr">
-            <button class="ml3left">
+            <button id="ml3left">
                 <div class="ml3biggroup">
-                    <div class="ml3group">
+                    <div id="ml3group">
                         <div class="ml3o">
                             <p>1위</p>
                         </div>
@@ -98,17 +106,28 @@
                     </div>
                 </div>
             </button>
+            <script>
+                const item = document.getElementById('ml3group');
+                const btn = document.getElementById('ml3left');
+        
+                btn.onclick = function(){
+        
+                    btn2.classList.remove('done');
+                    // item.classList.toggle('done');
+                    this.classList.toggle('done');
+                }
+            </script>
             <div class="ml3center">
                 VS
             </div>
-            <button class="ml3right">
+            <button id="ml3right">
                 <div class="ml3biggroup">
                     <div class="liv">
                         <img src="../사진파일/리버풀 로고.png">
                         <p class="livp">리버풀</p>
                     </div>
                     
-                    <div class="ml3group">
+                    <div id="ml3group">
                         <div class="ml3oo">
                             <p>3위</p>
                         </div>
@@ -163,7 +182,40 @@
                     </div>
                 </div>
             </button>
+            <script>
+                const item2 = document.getElementById('ml3group');
+                const btn2 = document.getElementById('ml3right');
+        
+                btn2.onclick = function(){
+                    btn.classList.remove('done');
+                    // item.classList.toggle('done');
+                    this.classList.toggle('done');
+                }
+            </script>
+<script>
+    var ratio1 = 40;
+var deg = (180*ratio1)/100 - 90 ;
+var deg2 = (180*(100-ratio1))/100 - 90;
 
+    document.querySelector('.circle').style.transform = `rotate(${deg}deg)`;
+
+
+    document.querySelector('#ml3left').onclick = function(){
+    document.querySelector('.circle').style.transform = `rotate(${deg2}deg)`;
+
+    document.querySelector('#ml3right').classList.remove('done');
+                    // item.classList.toggle('done');
+                    this.classList.toggle('done');
+}
+
+document.querySelector('#ml3right').onclick = function(){
+document.querySelector('.circle').style.transform = `rotate(${deg}deg)`;
+
+document.querySelector('#ml3left').classList.remove('done');
+                    // item.classList.toggle('done');
+                    this.classList.toggle('done');
+}
+</script>
         </div>
     </div>
     </div>
@@ -233,7 +285,31 @@
                         </svg>
                 </div>
             </div>
-            <div class="mypage">
+            <div class="login" id="login">
+        <form method="post" id="login-form">
+            <input type="id" name="userName" placeholder="아이디" id="lg">
+            <input type="password" name="userPassword" placeholder="비밀번호" id="lg">
+            <input type="button" value="로그인" id="log1">
+        </form>
+        <div class="loginunder">
+            <a href="#" id="sign1">회원가입</a>
+            <hr>
+            <a href="#">아이디 찾기</a>
+        </div>
+        </div>
+        <div class="sign" id="sign">
+            <form method="post" id="sign-form">
+                <input type="id" name="userName" placeholder="아이디" id="lg">
+                <input type="password" name="userPassword" placeholder="비밀번호" id="lg">
+                <input type="id" name="userName" placeholder="닉네임" id="lg">
+                <input type="number" name="userName" placeholder="전화번호" id="lg">
+                <input type="button" value="완료" id="sign2">
+            </form>
+            <div class="signunder">
+                <a href="#" id="signback">뒤로가기</a>
+            </div>
+            </div>
+            <div class="mypage" id="mypage">
                 <div class="mp1">
                     <div class="mp1o"></div>
                     <div class="mp1page">My Page</div>
@@ -245,8 +321,7 @@
                             <p>Profile</p>
                         </div>
                         <p class="mp2opoint">My Point</p>
-                </div>
-                    
+                    </div>
                 </div>
                 <div class="mp3">
                     <div class="mp31">
@@ -258,14 +333,14 @@
                         <p>Lv.8</p>
                     </div>
                     <div class="mp33">
-                        <p>로그아웃</p>
+                        <p id="logout">로그아웃</p>
                     </div>
                 </div>
                 <hr class="mp3line">
                 <div class="mp4">
                     <div class="mp41">
                         <p>Point</p>
-                        <p>300P</p>
+                        <div id="res">0</div>
                         <div class="pointcolor">
                             <svg xmlns="http://www.w3.org/2000/svg" width="82" height="33" viewBox="0 0 82 33" fill="none">
                                 <rect x="0.294678" y="0.492676" width="32.4718" height="32.4718" rx="16.2359" fill="#63ACDB"/>
@@ -278,32 +353,199 @@
                     <div class="mp42">
                         <div class="mp421">
                             <p>출석 체크</p>
-                            <div class="mp421up">
+                        
+                            <button class="mp421up" onclick='count("plus")'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                                     <rect x="0.611084" y="0.678711" width="18.0399" height="18.0399" rx="9.01994" fill="white"/>
                                     <path d="M9.89457 6.09773C9.69931 5.90246 9.38272 5.90246 9.18746 6.09773L6.00548 9.27971C5.81022 9.47497 5.81022 9.79155 6.00548 9.98681C6.20074 10.1821 6.51733 10.1821 6.71259 9.98681L9.54102 7.15839L12.3694 9.98681C12.5647 10.1821 12.8813 10.1821 13.0765 9.98681C13.2718 9.79155 13.2718 9.47497 13.0765 9.27971L9.89457 6.09773ZM10.041 13.6672L10.041 6.45128H9.04102L9.04102 13.6672H10.041Z" fill="#162F88"/>
                                   </svg>
-                            </div>
+                                </button>
                         </div>
                         <div class="mp422"></div>
                     </div>
                 </div>
             </div>
-        </div>
+           <script>
+            function count(type)  {
+  // 결과를 표시할 element
+  const resultElement = document.getElementById('res');
+  
+  // 현재 화면에 표시된 값
+  let number = resultElement.innerText;
+  
+  // 더하기/빼기
+  if(type === 'plus') {
+    number = parseInt(number) + 20;
+  }
+  
+  // 결과 출력
+  resultElement.innerText = number;
+}
+           </script>
+            <div class="mypoint" id="mypoint">
+                <div class="mp1">
+                    <div class="mp1o"></div>
+                    <div class="mp1page">My Page</div>
+                </div>
+                <div class="mp2">
+                    <div class="mp2o">
+                    <p class="mp22opoint">Profile</p>
+                        <div class="mp2o22">
+                        <p>My Point</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mp3">
+                    <div class="mp31">
+                        <img class="mp31lion" src="../사진파일/라이언.png">
+                    </div>
+                    <div class="mp32">
+                        <p>User</p>
+                        <p>킹재훈</p>
+                        <p>Lv.8</p>
+                    </div>
+                </div>
+                <hr class="mp3line">
+                <div class="mp4">
+                    <div class="mp41">
+                        <p>Point</p>
+                        <p id="res">300P</p>
+                    </div>
+                    <div class="mp42">
+                        <div class="mp422"></div>
+                    </div>
+                </div>
+            <div class="mp12">
+                <div class="mp5">
+                    <div class="mp6">
+                        <p>Get Point :</p>
+                        <p>400P</p>
+                    </div>
+                    <div class="mp7">
+                        <p>Lost Point :</p>
+                        <p>150P</p>
+                    </div>
+                </div>
+                <hr class="mp8">
+                <div class="mp9">
+                    <div class="mp10">
+                        <p>Win Rate :</p>
+                        <p>61%</p>
+                    </div>
+                    <div class="mp11">
+                        <p>Next Level :</p>
+                        <p>13%</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <script src="./js/jquery-3.7.1.min.js"></script>
+        <script>
+            $('#mypage').hide();
+            $('#log1').click(function(){
+                $('#login').hide();
+                $('#mypage').show();
+            })
+        </script>
+        <script>
+            $('#mypage').hide();
+            $('#logout').click(function(){
+                $('#mypage').hide();
+                $('#login').show();
+            })
+        </script>
+        <script>
+            $('#mypage').hide();
+            $('#sign').hide();
+            $('#mypoint').hide();
+            $('#sign1').click(function(){
+                $('#mypage').hide();
+                $('#login').hide();
+                $('#mypoint').hide();
+                $('#sign').show();
+            })
+        </script>
+        <script>
+            $('#mypage').hide();
+            $('#sign').hide();
+            $('#mypoint').hide();
+            $('#signback').click(function(){
+                $('#mypage').hide();
+                $('#sign').hide();
+                $('#mypoint').hide();
+                $('#login').show();
+            })
+        </script>
+        <script>
+            $('#mypage').hide();
+            $('#sign').hide();
+            $('#mypoint').hide();
+            $('#sign2').click(function(){
+                $('#mypage').hide();
+                $('#sign').hide();
+                $('#mypoint').hide();
+                $('#login').show();
+            })
+        </script>
+        <script>
+            $('#mypage').hide();
+            $('#sign').hide();
+            $('.mp2opoint').click(function(){
+                $('#mypage').hide();
+                $('#sign').hide();
+                $('#login').hide();
+                $('#mypoint').show();
+            })
+        </script>
+        <script>
+            $('#mypage').hide();
+            $('#sign').hide();
+            $('.mp22opoint').click(function(){
+                $('#mypoint').hide();
+                $('#sign').hide();
+                $('#login').hide();
+                $('#mypage').show();
+            })
+        </script>
 
 
         <div class="mr2">
             <div class="preview">
-                <div class="pv1">
-                    <p>Preview</p>
-                    <div class="pv1dot">
+                <div class="pv10">
+                    <div class="pvpv1">
+                        <p>Preview</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="5" viewBox="0 0 19 5" fill="none">
                             <rect width="5" height="5" rx="2.5" fill="#C8D2E8"/>
                             <rect x="7" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
                             <rect x="14" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                          </svg>
+                        </svg>
                     </div>
+                            <div class="submenu_box">
+                                <ul class="submenu1">
+                                    <li id="bigbox"><a href="#"> 크게 보기</a></li>
+                                    <li id="smallbox"><a href="#">작게 보기</a></li>
+                                </ul>
+                            </div>
+                        
+
+                <script>
+                    $('.submenu1').hide();
+                    $('.pvpv1 svg').click(function(){
+                        $('.submenu1').toggle();
+                    });
+                </script>
+            <script>
+                $('#bigbox').click(function(){
+                    $('.mainright').addClass('on')
+                });
+            </script>
+            <script>
+                $('#smallbox').click(function(){
+                    $('.mainright.on').removeClass('on')
+                });
+            </script>
                 </div>
+                    
                 <div class="pv2">
                     <div class="pv2box">
                         <p class="pv2h">H</p>
@@ -340,15 +582,28 @@
 
 
             <div class="result">
-                <div class="pv1">
+                <div class="pv10">
+                    <div class="pvpv2">
                     <p>Result</p>
-                    <div class="pv1dot1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="5" viewBox="0 0 19 5" fill="none">
                             <rect width="5" height="5" rx="2.5" fill="#C8D2E8"/>
                             <rect x="7" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
                             <rect x="14" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
                           </svg>
-                    </div>
+                          </div>
+                          <div class="submenu_box">
+                            <ul class="submenu2">
+                                <li><a href="#"> 크게 보기</a></li>
+                                <li><a href="#">작게 보기</a></li>
+                            </ul>
+                        </div>
+                    
+            <script>
+                $('.submenu2').hide();
+                $('.pvpv2 svg').click(function(){
+                    $('.submenu2').show();
+                });
+            </script>
                 </div>
                 <div class="pv2">
                     <div class="pv2box">
@@ -387,15 +642,28 @@
 
 
         <div class="notice">
-            <div class="pv1">
+            <div class="pv10">
+                <div class="pvpv3">
                 <p>Notice</p>
-                <div class="pv1dot2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="5" viewBox="0 0 19 5" fill="none">
                         <rect width="5" height="5" rx="2.5" fill="#C8D2E8"/>
                         <rect x="7" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
                         <rect x="14" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
                       </svg>
-                </div>
+                      </div>
+                      <div class="submenu_box">
+                        <ul class="submenu3">
+                            <li><a href="#"> 크게 보기</a></li>
+                            <li><a href="#">작게 보기</a></li>
+                        </ul>
+                    </div>
+                
+        <script>
+            $('.submenu3').hide();
+            $('.pvpv3 svg').click(function(){
+                $('.submenu3').show();
+            });
+        </script>
             </div>
             <div class="pv233">
             <div class="pv2">
@@ -410,7 +678,7 @@
                 <div class="pv4box">
                     <p class="pv2h">N</p>
                 </div>
-                <p class="pv31">9월 둘째 주, 오류로 이한 페이지 비정...</p>
+                <p class="pv31">9월 둘째 주, 오류로 이한 페이지...</p>
                 <p class="pv32">[16]</p>
                 <p class="pv33">16분전</p>
             </div>
