@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link href="https://fonts.cdnfonts.com/css/acme" rel="stylesheet">
+                
     <link rel="stylesheet" href="./css/import.css">
     <title>Document</title>
 </head>
@@ -194,7 +196,98 @@
             $('#winner1').show();
         })
     </script>
+    <div class="bigpreview">
+        <div class="bigpreviewtop">
+            <div class="bigman"><img src="../사진파일/맨유 로고.png">
+                <p>맨유</p>
+            </div>
+            <p class="bpp">Preview</p>
+            <div class="bigliv">
+                <img src="../사진파일/리버풀 로고.png">
+                <p>리버풀</p>
+            </div>
+        </div>
+        <div class="bigpreviewmid">
+            <p class="mup">Manchester United</p>
+            <div class="bplr">
+            <div class="bpleft">
+                <p>예상 라인업</p>
+                <img src="../사진파일/맨유 라인업.png">
+            </div>
+            <hr class="line1">
+            <div class="bpright">
+                <div class="bpright1">
+                    <p>주목할 점</p>
+                    <div class="bpr1">
+                    <p> -최근 부상에서 복귀한 암라바트<br>
+                        -호일룬 4경기 연속 골<br>
+                        -홈에서 리버풀 상대 2연승<br>
+                        -마운트 최근 10경기 7골 6도움<br>
+                        -바란 선발시 경기당 0.72 실점</p>
+                </div>
+                </div>
+                <hr class="line2">
+                <div class="bpright2">
+                    <p>결장 명단</p>
+                    <div class="bpr2">
+                    <p>-카세미루 (부상)<br>
+                    -마샬 (부상)<br>
+                    -말라시아 (부상)<br>
+                    -완 비사카 (경고누적 결장)</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="bigpreview2">
+        <div class="bigpreviewtop">
+            <div class="bigman"><img src="../사진파일/맨유 로고.png">
+                <p>맨유</p>
+            </div>
+            <p class="bpp">Preview</p>
+            <div class="bigliv">
+                <img src="../사진파일/리버풀 로고.png">
+                <p>리버풀</p>
+            </div>
+        </div>
+        <div class="bigpreviewmid2">
+            <p class="mup">LiverPool</p>
+            <div class="bplr">
+            <div class="bpleft">
+                <p>예상 라인업</p>
+                <img src="../사진파일/리버풀 라인업.png">
+            </div>
+            <hr class="line1">
+            <div class="bpright">
+                <div class="bpright1">
+                    <p>주목할 점</p>
+                    <div class="bpr1">
+                    <p>-5경기 3도움 로버트슨 부상
+                        <br>
+                        -누녜스 최근 5경기 0골
+                        <br>
+                        -홈에서 6경기 무패중
+                        <br>
+                        -조타 4경기만에 선발
+                    </p>
+                </div>
+                </div>
+                <hr class="line2">
+                <div class="bpright2">
+                    <p>결장 명단</p>
+                    <div class="bpr2">
+                    <p>-조 고메즈 (부상)<br>
+                    -로버트슨 (부상)<br>
+                    -마팁 (경고누적 결장)</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
     <div class="mainright">
+        
         <div class="mr1">
             <div class="rank">
                 <div class="r1">Rank</div>
@@ -551,35 +644,34 @@ resultElement2.innerText = number3;
                 <div class="pv10">
                     <div class="pvpv1">
                         <p>Preview</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="5" viewBox="0 0 19 5" fill="none">
-                            <rect width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                            <rect x="7" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                            <rect x="14" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                        </svg>
+                        <p id="pluss1">+</p>
                     </div>
-                            <div class="submenu_box">
-                                <ul class="submenu1">
-                                    <li id="bigbox"><a href="#"> 크게 보기</a></li>
-                                    <li id="smallbox"><a href="#">작게 보기</a></li>
-                                </ul>
-                            </div>
                         
 
                 <script>
-                    $('.submenu1').hide();
-                    $('.pvpv1 svg').click(function(){
-                        $('.submenu1').toggle();
-                    });
+                    $('.bigpreview').hide();
+                    $('.bigpreview2').hide();
                 </script>
             <script>
-                $('#bigbox').click(function(){
-                    $('.mainright').addClass('on')
-                });
+                $('#pluss1').click(function(){
+                    $('.mainright').hide();
+                    $('.bigpreview2').hide();
+                    $('.bigpreview').show();
+                })
             </script>
             <script>
-                $('#smallbox').click(function(){
-                    $('.mainright.on').removeClass('on')
-                });
+                $('.bigliv').click(function(){
+                    $('.mainright').hide();
+                    $('.bigpreview').hide();
+                    $('.bigpreview2').show();
+                })
+            </script>
+            <script>
+                $('.bigman').click(function(){
+                    $('.mainright').hide();
+                    $('.bigpreview2').hide();
+                    $('.bigpreview').show();
+                })
             </script>
                 </div>
                     
@@ -622,11 +714,7 @@ resultElement2.innerText = number3;
                 <div class="pv10">
                     <div class="pvpv2">
                     <p>Result</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="5" viewBox="0 0 19 5" fill="none">
-                            <rect width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                            <rect x="7" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                            <rect x="14" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                          </svg>
+                    <p class="pluss2">+</p>
                           </div>
                           <div class="submenu_box">
                             <ul class="submenu2">
@@ -637,7 +725,7 @@ resultElement2.innerText = number3;
                     
             <script>
                 $('.submenu2').hide();
-                $('.pvpv2 svg').click(function(){
+                $('.pluss2').click(function(){
                     $('.submenu2').toggle();
                 });
             </script>
@@ -682,11 +770,7 @@ resultElement2.innerText = number3;
             <div class="pv10">
                 <div class="pvpv3">
                 <p>Notice</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="5" viewBox="0 0 19 5" fill="none">
-                        <rect width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                        <rect x="7" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                        <rect x="14" width="5" height="5" rx="2.5" fill="#C8D2E8"/>
-                      </svg>
+                <p class="pluss3">+</p>
                       </div>
                       <div class="submenu_box">
                         <ul class="submenu3">
@@ -697,7 +781,7 @@ resultElement2.innerText = number3;
                 
         <script>
             $('.submenu3').hide();
-            $('.pvpv3 svg').click(function(){
+            $('.pluss3').click(function(){
                 $('.submenu3').toggle();
             });
         </script>
