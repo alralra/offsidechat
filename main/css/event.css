@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'SBAggroB';
+}
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    background: lightgray;
+    
+}
+header{
+    width: 100%;
+    height: 147px;
+    border-radius: 0px 0px 30px 30px;
+    background: #272934;
+    display: flex;
+    justify-content: space-evenly;
+}
+.logo{
+    width: 78px;
+    height: 53px;
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+header>div{
+    flex-shrink: 0;
+    margin-top: 49px;
+    margin-bottom: 49px;
+    
+}
+header>div>p{
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    text-align: center;
+    font-family: Acme;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+.event{
+    margin-right: 45px;
+}
+.home{
+    margin-left: 1117px;  
+}
+.em1{
+    display: flex;
+    justify-content: center;
+}
+.eventmain{
+    width: 1201px;
+    height: 700px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-image: url(../종이배경.png);
+}
+.emp1{
+    color: #ffe200;
+    text-shadow: -2px 0px purple, 0px 2px purple, 2px 0px purple, 0px -2px purple;
+    text-align: center;
+    font-family: 'SBAggroB';
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 42px;    
+}
+.emp2{
+    color: #ffe200;
+    text-shadow: -2px 0px purple, 0px 2px purple, 2px 0px purple, 0px -2px purple;
+    text-align: center;
+    font-family: 'SBAggroB';
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 24px;    
+}
+.emp3{
+    color: white;
+    text-align: center;
+    font-family: 'SBAggroB';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 32px; 
+}
+.event2{
+    display: flex;
+    justify-content: center;
+}
+.eventhr{
+    width: 1201px;
+    height: 2px;
+    background-color: black;
+    position: relative;
+    margin-top: 70px;
+}
+.eventct{
+    display: flex;
+    justify-content: center;
+    width: 434px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 46px;
+    background: white;
+    align-items: center;
+    position: absolute;
+    margin-top: 30px;
+}
+.eventct>p{
+    color: #000;
+    text-align: center;
+    font-family: 'SBAggroB';
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+.event3{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    margin-top: 60px;
+}
+.rockp,.scissorsp,.paperp{
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    background: white;
+    color: #000;
+    text-align: center;
+    font-family: 'SBAggroB';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;   
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.rockimg{
+    width: 127px;
+    height: 113px;
+}
+.scissorsimg{
+    width: 154px;
+    height: 129px;
+}
+.paperimg{
+    width: 158px;
+    height: 123px;   
+}
+.rock,.scissors,.paper{
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+}
+#result{
+    margin-left: 30px;
+}
+.rockp>p,.scissorsp>p,.paperp>p{
+    transform: translateY(-10%);
+}

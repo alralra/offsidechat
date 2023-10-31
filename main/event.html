@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/event.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <header>
+        <div class="logo" ><img src="../사진파일/로고.png"></div>
+        <div class="home" button type="button" onClick="location.href='index.html'"><p>Home</p></div>
+        <div class="com" button type="button" onClick="location.href='community.html'"><p>Community</p></div>
+        <div class="news" button type="button" onClick="location.href='news.html'"><p>News</p></div>
+        <div class="event" button type="button" onClick="location.href='event.html'"><p>Event</p></div>
+    </header>
+    <div class="em1">
+    <div class="eventmain">
+        <div class="event1">
+        <p class="emp1">추억의</p>
+        <p class="emp2">가위! 바위! 보!</p>
+        <p class="emp3">2023.10.30(월) ~ 2023.11.30(목)까지</p>
+        </div>
+        <div class="event2">
+            <hr class="eventhr">
+            <div class="eventct">
+                <p>도전 횟수</p>
+                <p id="result">3</p>
+                <p>/3</p>
+            </div>
+        </div>
+        <div class="event3">
+            <button type="button" onclick="play(2)" class="rock"  value='-'>
+                <div class="rockp">
+                <img class="rockimg" src="../사진파일/주먹.png">
+                <p>바위</p></div>
+            </button>
+            
+            <button type="button" onclick="play(1)" class="scissors"  value='-'>
+                <div class="scissorsp">
+                <img class="scissorsimg" src="../사진파일/가위.png">
+                <p>가위</p></div>
+            </button>
+
+            <button type="button" onclick="play(3)" class="paper"  value='-'>
+                <div class="paperp">
+                <img class="paperimg" src="../사진파일/보자기.png">
+                <p>보</p></div>
+            </button>
+
+            
+            
+            
+        </div>
+    </div>
+    <script>
+        var playerStateChar = "";
+        var playerState = 0;
+        var comStateChar = "";
+        var comState = 0;
+
+        var result = 0;
+
+        var win = 0;
+        var defeat = 0;
+        var draw = 0;
+
+        function play(num) {
+            if (num == 1) {
+                playerStateChar = "가위";
+                playerState = 1;
+            }
+            else if (num == 2) {
+                playerStateChar = "바위";
+                playerState = 2;
+            }
+            else {
+                playerStateChar = "보";
+                playerState = 3;
+            }
+
+            const resultElement = document.getElementById('result');
+            let number = resultElement.innerText;
+            
+            if (number == 0){
+                alert("오늘은 여기까지~")
+                }else{
+                number = number - 1;
+                resultElement.innerText = number;
+                
+            }
+
+            // 컴퓨터의 가위, 바위, 보 설정
+            setComState();
+
+            // 플레이어의 승패 여부를 판별
+            setDistinct();
+
+            // 결과 출력
+            showResult();
+        }
+
+        // 컴퓨터의 상태 설정 함수
+        // 1, 2, 3 중 하나를 랜덤하게 설정
+        // 1 : 가위 / 2 : 바위 / 3 : 보
+        function setComState() {
+            // Math.random()은 0에서 1사이의 값 무작위 반환
+            // 이 값에 3을 곱하면 0.000...3 ~ 2.999...9 사이의 값 무작위 반환
+            // 이 범위의 수를 소수점을 날리면 0 이상 2 이하의 값
+            // 이 값에 + 1을 해주면 1 이상 3 이하의 값
+            var state = Math.floor(Math.random() * 3) + 1;
+            comState = state;
+
+            if (state == 1) {
+                comStateChar = "가위";
+            }
+            else if (state == 2) {
+                comStateChar = "바위";
+            }
+            else {
+                comStateChar = "보";
+            }
+        }
+
+        // 결과에 따른 result 값 설정
+        // 0 : 무승부 / 1 : 승리 / -1 : 패배
+        function setDistinct() {
+            if (playerState == comState) {
+                result = 0;
+            }
+            else { 
+                // 플레이어 : 가위
+                if (playerState == 1) {
+                    if (comState == 2) {
+                        result = -1;
+                    }
+                    else if (comState == 3) {
+                        result = 1;
+                    }
+                }
+                // 플레이어 : 바위
+                else if (playerState == 2) {
+                    if (comState == 1) {
+                        result = 1;
+                    }
+                    else if (comState == 3) {
+                        result = -1;
+                    }
+                }
+                // 플레이어 : 보
+                else {
+                    if (comState == 1) {
+                        result = -1;
+                    }
+                    else if (comState == 2) {
+                        result = 1;
+                    }
+                }
+            }
+        }
+
+        // 결과 출력 함수
+        function showResult() {
+            if (result == 0) {
+                draw++;
+                alert("당신 : " + playerStateChar + "\n컴퓨터 : " + comStateChar + "\n\n비겼습니다.");
+                alert("현재 전적\n승 : " + win + "\n패 : " + defeat + "\n무 : " + draw + "\n\n승률 : " + getWinRate() + "%");
+            }
+            else if (result == 1) {
+                win++;
+                alert("당신 : " + playerStateChar + "\n컴퓨터 : " + comStateChar + "\n\n이겼습니다!");
+                alert("현재 전적\n승 : " + win + "\n패 : " + defeat + "\n무 : " + draw + "\n\n승률 : " + getWinRate() + "%");
+            }
+            else {
+                defeat++;
+                alert("당신 : " + playerStateChar + "\n컴퓨터 : " + comStateChar + "\n\n졌습니다...");
+                alert("현재 전적\n승 : " + win + "\n패 : " + defeat + "\n무 : " + draw + "\n\n승률 : " + getWinRate() + "%");
+            }
+        }
+
+
+    </script>
+
+</div>
+</body>
+</html>

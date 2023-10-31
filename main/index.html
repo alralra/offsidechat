@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="./css/import.css">
     <title>Document</title>
 </head>
 <body>
+    <script src="./js/jquery-3.7.1.min.js"></script>
     <header>
         <div class="logo" ><img src="../사진파일/로고.png"></div>
         <div class="home" button type="button" onClick="location.href='index.html'"><p>Home</p></div>
         <div class="com" button type="button" onClick="location.href='community.html'"><p>Community</p></div>
         <div class="news" button type="button" onClick="location.href='news.html'"><p>News</p></div>
-        <div class="event"><p>Event</p></div>
+        <div class="event" button type="button" onClick="location.href='event.html'"><p>Event</p></div>
     </header>
     <section>
     <div class="mainleft">
-        <div class="ml1">1st 승부예측</div>
+        <div class="ml1"><p>1st 승부예측</p></div>
         <div class="ml2">
             <div class="fir"><p class="first">1</p></div>
             <p class="ml2two">2</p>
@@ -36,17 +38,18 @@
                     <div class="box">
                         <div class="circle">
                              <div class="inner"></div>
-                             
                         </div>
-                        <!-- <div class="winner" >
-                            <img src="../사진파일/맨유 로고.png"><p>in superior</p></div> -->
-    
-                      </div>
-                    
+                        <div class="winner" >
+                            <img src="../사진파일/맨유 로고.png" id="winner1"><p>in superior</p></div>
+                            <div class="winner">
+                                <img src="../사진파일/리버풀 로고.png" id="winner2"><p>in superior</p></div>
+                        </div>
+                        
                 </div>
             </div>
+            
             <div class="ml3lr">
-            <button id="ml3left">
+            <button id="ml3left" class="ml3le">
                 <div class="ml3biggroup">
                     <div id="ml3group">
                         <div class="ml3o">
@@ -106,21 +109,11 @@
                     </div>
                 </div>
             </button>
-            <script>
-                const item = document.getElementById('ml3group');
-                const btn = document.getElementById('ml3left');
-        
-                btn.onclick = function(){
-        
-                    btn2.classList.remove('done');
-                    // item.classList.toggle('done');
-                    this.classList.toggle('done');
-                }
-            </script>
+            
             <div class="ml3center">
                 VS
             </div>
-            <button id="ml3right">
+            <button id="ml3right" class="ml3le">
                 <div class="ml3biggroup">
                     <div class="liv">
                         <img src="../사진파일/리버풀 로고.png">
@@ -131,9 +124,9 @@
                         <div class="ml3oo">
                             <p>3위</p>
                         </div>
-                <p class="ml3o11">4승 4무 2패</p>
-                <p class="ml3o22">평균 득점 1.55</p>
-                <p class="ml3o33">평균 실점 1.05</p>
+                <p class="ml3o1">4승 4무 2패</p>
+                <p class="ml3o2">평균 득점 1.55</p>
+                <p class="ml3o3">평균 실점 1.05</p>
             </div>
             
                 </div>
@@ -182,43 +175,25 @@
                     </div>
                 </div>
             </button>
-            <script>
-                const item2 = document.getElementById('ml3group');
-                const btn2 = document.getElementById('ml3right');
-        
-                btn2.onclick = function(){
-                    btn.classList.remove('done');
-                    // item.classList.toggle('done');
-                    this.classList.toggle('done');
-                }
-            </script>
-<script>
-    var ratio1 = 40;
-var deg = (180*ratio1)/100 - 90 ;
-var deg2 = (180*(100-ratio1))/100 - 90;
+           
 
-    document.querySelector('.circle').style.transform = `rotate(${deg}deg)`;
-
-
-    document.querySelector('#ml3left').onclick = function(){
-    document.querySelector('.circle').style.transform = `rotate(${deg2}deg)`;
-
-    document.querySelector('#ml3right').classList.remove('done');
-                    // item.classList.toggle('done');
-                    this.classList.toggle('done');
-}
-
-document.querySelector('#ml3right').onclick = function(){
-document.querySelector('.circle').style.transform = `rotate(${deg}deg)`;
-
-document.querySelector('#ml3left').classList.remove('done');
-                    // item.classList.toggle('done');
-                    this.classList.toggle('done');
-}
-</script>
         </div>
     </div>
     </div>
+    <script>
+        $('#winner2').hide();
+        $('#ml3right').click(function(){
+            $('#winner1').hide();
+            $('#winner2').show();
+        })
+    </script>
+    <script>
+        $('#winner2').hide();
+        $('#ml3left').click(function(){
+            $('#winner2').hide();
+            $('#winner1').show();
+        })
+    </script>
     <div class="mainright">
         <div class="mr1">
             <div class="rank">
@@ -285,26 +260,30 @@ document.querySelector('#ml3left').classList.remove('done');
                         </svg>
                 </div>
             </div>
+
+
             <div class="login" id="login">
-        <form method="post" id="login-form">
-            <input type="id" name="userName" placeholder="아이디" id="lg">
-            <input type="password" name="userPassword" placeholder="비밀번호" id="lg">
-            <input type="button" value="로그인" id="log1">
-        </form>
-        <div class="loginunder">
-            <a href="#" id="sign1">회원가입</a>
-            <hr>
-            <a href="#">아이디 찾기</a>
-        </div>
-        </div>
-        <div class="sign" id="sign">
-            <form method="post" id="sign-form">
-                <input type="id" name="userName" placeholder="아이디" id="lg">
-                <input type="password" name="userPassword" placeholder="비밀번호" id="lg">
-                <input type="id" name="userName" placeholder="닉네임" id="lg">
-                <input type="number" name="userName" placeholder="전화번호" id="lg">
-                <input type="button" value="완료" id="sign2">
-            </form>
+                <form method="post" id="login-form">
+                    <input type="id" name="userName" placeholder="아이디" id="lg">
+                    <input type="password" name="userPassword" placeholder="비밀번호" id="lg">
+                    <input type="button" value="로그인" id="log1">
+                </form>
+                <div class="loginunder">
+                    <a href="#" id="sign1">회원가입</a>
+                    <hr>
+                    <a href="#">아이디 찾기</a>
+                </div>
+            </div>
+
+
+            <div class="sign" id="sign">
+                <form method="post" id="sign-form">
+                    <input type="id" name="userName" placeholder="아이디" id="lg">
+                    <input type="password" name="userPassword" placeholder="비밀번호" id="lg">
+                    <input type="id" name="userName" placeholder="닉네임" id="lg">
+                    <input type="number" name="userName" placeholder="전화번호" id="lg">
+                    <input type="button" value="완료" id="sign2">
+                </form>
             <div class="signunder">
                 <a href="#" id="signback">뒤로가기</a>
             </div>
@@ -340,7 +319,7 @@ document.querySelector('#ml3left').classList.remove('done');
                 <div class="mp4">
                     <div class="mp41">
                         <p>Point</p>
-                        <div id="res">0</div>
+                        <div id="res">370</div>
                         <div class="pointcolor">
                             <svg xmlns="http://www.w3.org/2000/svg" width="82" height="33" viewBox="0 0 82 33" fill="none">
                                 <rect x="0.294678" y="0.492676" width="32.4718" height="32.4718" rx="16.2359" fill="#63ACDB"/>
@@ -354,34 +333,17 @@ document.querySelector('#ml3left').classList.remove('done');
                         <div class="mp421">
                             <p>출석 체크</p>
                         
-                            <button class="mp421up" onclick='count("plus")'>
+                            <a class="mp421up" onclick='count("plus")'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                                     <rect x="0.611084" y="0.678711" width="18.0399" height="18.0399" rx="9.01994" fill="white"/>
                                     <path d="M9.89457 6.09773C9.69931 5.90246 9.38272 5.90246 9.18746 6.09773L6.00548 9.27971C5.81022 9.47497 5.81022 9.79155 6.00548 9.98681C6.20074 10.1821 6.51733 10.1821 6.71259 9.98681L9.54102 7.15839L12.3694 9.98681C12.5647 10.1821 12.8813 10.1821 13.0765 9.98681C13.2718 9.79155 13.2718 9.47497 13.0765 9.27971L9.89457 6.09773ZM10.041 13.6672L10.041 6.45128H9.04102L9.04102 13.6672H10.041Z" fill="#162F88"/>
                                   </svg>
-                                </button>
+                                </a>
                         </div>
                         <div class="mp422"></div>
                     </div>
                 </div>
             </div>
-           <script>
-            function count(type)  {
-  // 결과를 표시할 element
-  const resultElement = document.getElementById('res');
-  
-  // 현재 화면에 표시된 값
-  let number = resultElement.innerText;
-  
-  // 더하기/빼기
-  if(type === 'plus') {
-    number = parseInt(number) + 20;
-  }
-  
-  // 결과 출력
-  resultElement.innerText = number;
-}
-           </script>
             <div class="mypoint" id="mypoint">
                 <div class="mp1">
                     <div class="mp1o"></div>
@@ -409,7 +371,7 @@ document.querySelector('#ml3left').classList.remove('done');
                 <div class="mp4">
                     <div class="mp41">
                         <p>Point</p>
-                        <p id="res">300P</p>
+                        <p id="res2">370</p>
                     </div>
                     <div class="mp42">
                         <div class="mp422"></div>
@@ -439,7 +401,81 @@ document.querySelector('#ml3left').classList.remove('done');
                 </div>
             </div>
             </div>
-        <script src="./js/jquery-3.7.1.min.js"></script>
+            <script>
+                function count(type)  {
+      // 결과를 표시할 element
+      const resultElement = document.getElementById('res');
+      const resultElement2 = document.getElementById('res2');
+      
+      // 현재 화면에 표시된 값
+      let number = resultElement.innerText;
+      
+      // 더하기/빼기
+      if(type === 'plus') {
+        number = parseInt(number) + 20;
+      }
+      
+      // 결과 출력
+      resultElement.innerText = number;
+      resultElement2.innerText = number;
+    }
+               </script>
+
+<script>
+    var ratio1 = 0;
+var deg = (180*ratio1)/100 - 90 ;
+var deg2 = (180*(100-ratio1))/100 - 60;
+
+    document.querySelector('.circle').style.transform = `rotate(${deg}deg)`;
+
+
+    document.querySelector('#ml3left').onclick = function(){
+    document.querySelector('.circle').style.transform = `rotate(${deg2}deg)`;
+
+    document.querySelector('#ml3right').classList.remove('done');
+                    // item.classList.toggle('done');
+                    this.classList.toggle('done');
+                    const resultElement = document.getElementById('res');
+        const resultElement2 = document.getElementById('res2');
+
+// 현재 화면에 표시된 값
+let number2 = resultElement.innerText;
+
+
+// 더하기/빼기
+
+number2 = parseInt(number2) - 20;
+
+
+// 결과 출력
+resultElement.innerText = number2;
+resultElement2.innerText = number2;
+}
+
+document.querySelector('#ml3right').onclick = function(){
+document.querySelector('.circle').style.transform = `rotate(${deg}deg)`;
+
+document.querySelector('#ml3left').classList.remove('done');
+                    // item.classList.toggle('done');
+                    this.classList.toggle('done');
+                    const resultElement = document.getElementById('res');
+        const resultElement2 = document.getElementById('res2');
+
+// 현재 화면에 표시된 값
+let number3 = resultElement.innerText;
+
+// 더하기/빼기
+
+number3 = parseInt(number3) - 20;
+
+
+// 결과 출력
+resultElement.innerText = number3;
+resultElement2.innerText = number3;
+}
+</script>
+
+        
         <script>
             $('#mypage').hide();
             $('#log1').click(function(){
@@ -507,6 +543,7 @@ document.querySelector('#ml3left').classList.remove('done');
                 $('#mypage').show();
             })
         </script>
+        </div>
 
 
         <div class="mr2">
@@ -601,7 +638,7 @@ document.querySelector('#ml3left').classList.remove('done');
             <script>
                 $('.submenu2').hide();
                 $('.pvpv2 svg').click(function(){
-                    $('.submenu2').show();
+                    $('.submenu2').toggle();
                 });
             </script>
                 </div>
@@ -661,7 +698,7 @@ document.querySelector('#ml3left').classList.remove('done');
         <script>
             $('.submenu3').hide();
             $('.pvpv3 svg').click(function(){
-                $('.submenu3').show();
+                $('.submenu3').toggle();
             });
         </script>
             </div>
