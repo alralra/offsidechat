@@ -165,21 +165,35 @@
         function showResult() {
             if (result == 0) {
                 draw++;
-                alert("당신 : " + playerStateChar + "\n컴퓨터 : " + comStateChar + "\n\n비겼습니다.");
+                alert("당신 : " + playerStateChar + "\n운영자 : " + comStateChar + "\n\n비겼습니다.");
                 alert("현재 전적\n승 : " + win + "\n패 : " + defeat + "\n무 : " + draw + "\n\n승률 : " + getWinRate() + "%");
             }
             else if (result == 1) {
                 win++;
-                alert("당신 : " + playerStateChar + "\n컴퓨터 : " + comStateChar + "\n\n이겼습니다!");
+                alert("당신 : " + playerStateChar + "\n운영자 : " + comStateChar + "\n\n승리!" + "\n\n+20 포인트");
                 alert("현재 전적\n승 : " + win + "\n패 : " + defeat + "\n무 : " + draw + "\n\n승률 : " + getWinRate() + "%");
             }
             else {
                 defeat++;
-                alert("당신 : " + playerStateChar + "\n컴퓨터 : " + comStateChar + "\n\n졌습니다...");
+                alert("당신 : " + playerStateChar + "\n운영자 : " + comStateChar + "\n\n패배..." + "\n\n-20 포인트");
                 alert("현재 전적\n승 : " + win + "\n패 : " + defeat + "\n무 : " + draw + "\n\n승률 : " + getWinRate() + "%");
+
+                
             }
         }
+        function getWinRate() {
+            var winRate = 0;
 
+            if (win != 0) {
+                // 승률 : (이긴 횟수 / 전체 경기 수) * 100
+                winRate = (win / (win + defeat)) * 100;
+            }
+            else {
+                winRate = 0;
+            }
+
+            return winRate;
+        }
 
     </script>
 
